@@ -1,0 +1,55 @@
+---
+layout: default
+title:  "Blog index"
+description: "List of posts on Nick Guletskii's blog"
+---
+<table style="width: 100%">
+	<thead>
+		<tr>
+			<th width="100">Date</th>
+			<th>Title</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for post in paginator.posts %}
+		<tr>
+			<td><a href="{{ post.url }}">{{ post.date | date_to_string }}</a>
+			</td>
+			<td><a href="{{ post.url }}">{{ post.title }}</a>
+			</td>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+
+<div class="pagination-centered">
+	<ul class="pagination">
+		<!-- Previous page arrow -->
+		{% if paginator.previous_page %}
+		<li class="arrow"><a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo;</a>
+		</li>
+		{% else %}
+		<li class="arrow unavailable"><a href="">&laquo;</a>
+		</li>
+		{% endif %}
+		<!-- Page numbers -->
+		{% for p in (1..paginator.total_pages) %} {% if p == paginator.page %}
+		<li class="current"><a href="{{ paginator.page.url }}">{{ p }}</a>
+		</li>
+		{% elsif p == 1 %}
+		<li class=""><a href="/blog/index.html">{{ p }}</a>
+		</li>
+		{% else %}
+		<li class=""><a href="{{ site.paginate_path | replace: ':num', p }}">{{ p }}</a>
+		</li>
+		{% endif %}
+		<!-- Next page arrow -->
+		{% endfor %} {% if paginator.next_page %}
+		<li class="arrow"><a href="{{ paginator.next_page_path  }}">&raquo;</a>
+		</li>
+		{% else %}
+		<li class="arrow unavailable"><a href="">&raquo;</a>
+		</li>
+		{% endif %}
+	</ul>
+</div>

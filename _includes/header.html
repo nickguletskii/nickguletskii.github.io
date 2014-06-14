@@ -1,0 +1,17 @@
+<nav class="top-bar" data-topbar>
+	<ul class="title-area">
+		<li class="name">
+			<h1><a href="/">{{ site.title }}</a>
+			</h1>
+		</li>
+	</ul>
+	<section class="top-bar-section">
+		<!-- Right Nav Section -->
+		<ul class="right">
+			<li {% if ((page.url == "/index.html") or (page.url == "/")) %} class="active" {% endif %}><a href="/">Projects</a>
+			</li>
+			<li {% if (page.url contains "/blog/") %} class="active" {% endif %}><a href="/blog/">Blog</a>
+			</li>
+		</ul>
+	</section>
+</nav>
