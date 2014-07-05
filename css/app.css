@@ -30,15 +30,34 @@
     color: #fff;
 }
 /*
+	Some fixes for Foundation
+*/
+.orbit-caption {
+	color: white;
+}
+/*
 	Code tag style
 */
- .highlight {
+code {
+    font-family: monospace;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: normal;
+    color: rgb(34, 34, 34);
+	margin: 0;
+	border: 1px solid #ddd;
+	background-color: #f8f8f8;
+	border-radius: 3px;
+	padding: 0;
+}
+
+.highlight {
     margin-bottom: 1.25rem;
 }
 .highlight > pre {
     border-style: solid;
     border-width: 1px;
-    border-color: rgb(0, 0, 0);
+    border-color: #ddd;
     padding-top: 6px;
     padding-right: 10px;
     padding-bottom: 6px;
@@ -54,6 +73,7 @@
     font-size: 16px;
     font-style: normal;
     font-weight: normal;
+    border: none;
 }
 .highlight > pre > code > .c {
     color: #3F7F5F;
